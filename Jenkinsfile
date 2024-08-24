@@ -24,7 +24,7 @@ pipeline  {
              steps{
                sh'''#!/bin/sh 
             usermod -a -G sudo jenkins
-            sudo /home/denis/Amazon-Clone/delete.sh
+            -S sudo /home/denis/Amazon-Clone/delete.sh
  '''
              }
          }
