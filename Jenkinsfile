@@ -23,7 +23,6 @@ pipeline  {
          stage ("Remove all containers and images"){
              steps{
                sh'''#!/bin/sh 
-            usermod -a -G sudo jenkins
             -S sudo /home/denis/Amazon-Clone/delete.sh
  '''
              }
