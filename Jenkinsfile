@@ -23,7 +23,7 @@ pipeline  {
          stage ("Remove all containers and images"){
              steps{
                sh'''#!/bin/sh 
-            /var/lib/jenkins/workspace/Build Site/delete.sh
+            /home/denis/Amazon-Clone/delete.sh
  '''
              }
          }
