@@ -9,7 +9,7 @@ pipeline  {
              steps{
                 sh """
                 #!/bin/bash
-                hostname
+                sudo /home/azureuser/backup.sh
                 """
              }
          }
