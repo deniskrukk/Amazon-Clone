@@ -23,7 +23,7 @@ pipeline  {
          stage ("Remove all containers and images"){
              steps{
                sh'''#!/bin/sh 
-            -S sudo /home/denis/Amazon-Clone/delete.sh
+            -S sudo bash delete.sh
  '''
              }
          }
