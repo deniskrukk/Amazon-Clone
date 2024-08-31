@@ -25,8 +25,8 @@ pipeline  {
                sh'''#!/bin/sh 
            bash delete.sh -y
            
-           }
-        }
+             }
+         }
         stage ("Remove docker cache"){
          steps{
             sh "sudo docker system prune -af"
