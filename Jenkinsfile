@@ -23,7 +23,7 @@ pipeline  {
          stage ("Remove all containers and images"){
              steps{
                sh'''#!/bin/sh 
-            sudo -S bash /var/lib/jenkins/workspace/Build Site/delete.sh
+           echo "123456" | sudo -S bash /var/lib/jenkins/workspace/Build Site/delete.sh
  '''
              }
          }
