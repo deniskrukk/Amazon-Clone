@@ -30,8 +30,6 @@ pipeline  {
         stage ("Remove docker cache"){
          steps{
             sh "sudo docker system prune -af"
-         }   
-        }
  '''
              }
          }
