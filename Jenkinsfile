@@ -16,7 +16,7 @@ pipeline  {
         stage("Change IP in axios.js")
          {
              steps{
-                sh "find FrontEnd/my-app/ -type f -exec sed  -i 's#http://localhost:5034#https://10.20.34.175/#g' {} +"
+                sh "find FrontEnd/my-app/ -type f -exec sed  -i 's#http://localhost:5034#http://10.20.34.175:5034/#g' {} +"
              }
          }
          stage("Change IP in appsettings.json")
@@ -28,7 +28,7 @@ pipeline  {
         stage("Change Database IP in appsettings.json")
          {
              steps{
-                sh "find BackEnd/Amazon-clone/ -type f -exec sed  -i 's#Server=20.240.61.200#Server=10.20.34.175/#g' {} +"
+                sh "find BackEnd/Amazon-clone/ -type f -exec sed  -i 's#Server=20.240.61.200#Server=10.20.34.175#g' {} +"
              }
          }
          stage ("Remove all containers and images"){
@@ -51,20 +51,20 @@ pipeline  {
         stage("Create frontend docker image") {
             steps {
                 echo 'Creating frontend docker image ...'
-                sh "cd FrontEnd/my-app && docker build --no-cache -t deniskrukk/amazon-clone-frontend   . "                
+                sh "cd FrontEnd/my-app && docker build --no-cache -t macnaer/amazon-clone-frontend   . "                
             }
         }
-        stage("Create backend docker image") {
-                steps {
-                    echo 'Creating backend docker image ...'
-                    sh " cd BackEnd/Amazon-clone/ && docker build --no-cache -t deniskrukk/amazon-clone-backend  . "
+         stage("Create backend docker image") {
+            steps {
+                echo 'Creating backend docker image ...'
+                sh " cd BackEnd/Amazon-clone/ && docker build --no-cache -t macnaer/amazon-clone-backend  . "
             }
         }
-        stage("docker frontend run") {
+         stage("docker frontend run") {
              steps {
                  echo " ============== Creating frontend docker container =================="
                  sh '''
-                 docker run -d --restart=always -p 80:80 --name=frontend deniskrukk/amazon-clone-frontend
+                 docker run -d --restart=always -p 80:80 --name=frontend macnaer/amazon-clone-frontend
                  '''
              }
          }
@@ -72,7 +72,7 @@ pipeline  {
              steps {
                  echo " ============== Creating backend docker container =================="
                  sh '''
-                 docker run -d --restart=always -p 5034:5034 --name=backend deniskrukk/amazon-clone-backend
+                 docker run -d --restart=always -p 5034:5034 --name=backend macnaer/amazon-clone-backend
                  '''
              }
         }
