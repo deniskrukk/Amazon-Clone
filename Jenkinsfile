@@ -34,13 +34,13 @@ pipeline  {
          stage ("Remove all containers and images"){
              steps{
                sh'''#!/bin/sh 
-            bash -y delete.sh
+            bash delete.sh -y
  '''
              }
         }
          stage ("Remove docker cache"){
          steps{
-            sh "docker system prune -y -af"
+            sh "docker system prune -af"
          }   
         }
          stage ("Run MSSQL container"){
