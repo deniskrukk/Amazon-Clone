@@ -3,7 +3,8 @@
 pipeline  {
     agent any;
     stages {
-        stage("Running MSSQL") {
+        stage("Running MSSQL") 
+            {
              steps{
                 sh '''
                   sudo mkdir /opt/mssql
