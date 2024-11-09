@@ -3,16 +3,6 @@
 pipeline  {
     agent any;
     stages {
-        stage("Preparing to run MSSQL")
-         {
-             steps{
-                sh '''
-                  sudo mkdir /home/db
-                  sudo chmod 777 /home/db/
-                '''
-             }
-            
-         }
           stage("Running MSSQL")
          {
            steps{
