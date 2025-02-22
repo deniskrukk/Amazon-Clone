@@ -69,7 +69,7 @@ curl -X POST -u "admin:$password" $url/setupWizard/createAdminUser \
 #################################################
 ################################# Suggested Plugins ############################################
 #! /bin/bash
-url=http://localhost:8080
+url=http://16.16.133.210:8080
 
 
 cookie_jar="$(mktemp)"
@@ -86,7 +86,7 @@ curl -X POST -u "$username:$new_password" $url/pluginManager/installPlugins \
   -H 'Content-Type: application/json' \
   -H 'Accept-Language: en,en-US;q=0.9,it;q=0.8' \
   --cookie $cookie_jar \
-  --data-raw "{'dynamicLoad':true,'plugins':['cloudbees-folder','antisamy-markup-formatter','build-timeout','credentials-binding','timestamper','ws-cleanup','ant','gradle','workflow-aggregator','github-branch-source','pipeline-github-lib','pipeline-stage-view','git','ssh-slaves','matrix-auth','pam-auth','ldap','email-ext','mailer'],'Jenkins-Crumb':'$only_crumb'}"
+  --data-raw "{'dynamicLoad':true,'plugins':['cloudbees-folder','antisamy-markup-formatter','build-timeout','credentials-binding','timestamper','ws-cleanup','ant','gradle','workflow-aggregator','github-branch-source','pipeline-github-lib','pipeline-stage-view','git','ssh-slaves','matrix-auth','pam-auth','ldap','email-ext','mailer','configuration-as-code'],'Jenkins-Crumb':'$only_crumb'}"
 ###################################################################################
 
 ############################################### Confirm URL ###################################################
@@ -95,7 +95,7 @@ curl -X POST -u "$username:$new_password" $url/pluginManager/installPlugins \
 
 # The jenkins URL, if you are on an amazon instance, you can put there the
 # public DNS name, in order to be able to access jenkins thorugh that URL
-url=http://51.21.67.202:8080
+url=http://16.16.133.210:8080
 
 user=user
 password=password
