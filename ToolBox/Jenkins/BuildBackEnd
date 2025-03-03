@@ -23,7 +23,7 @@ pipeline {
         {
             steps{
                 withCredentials([string(credentialsId: 'MSSQL-PASSWORD',  variable: 'PASSWD')]){
-                    sh "find BackEnd/Amazon-clone/ -type f -exec sed  -i 's#Password=MSSQL_SA_PASSWORD#Password=${PASSWD}#g' {} +"
+                    sh "find BackEnd/Amazon-clone/ -type f -exec sed  -i 's#Password=Qwerty-1#Password=${PASSWD}#g' {} +"
                 }
             }
         }
