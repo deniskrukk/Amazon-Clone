@@ -19,14 +19,6 @@ pipeline {
                 }
             }
         }
-        stage("Change Database Password in appsettings.json")
-        {
-            steps{
-                withCredentials([string(credentialsId: 'MSSQL-PASSWORD',  variable: 'PASSWD')]){
-                    sh "find BackEnd/Amazon-clone/ -type f -exec sed  -i 's#Password=Qwerty-1#Password=${PASSWD}#g' {} +"
-                }
-            }
-        }
         stage("Create backend docker image") {
             steps {
                 echo 'Creating backend docker image ...'
